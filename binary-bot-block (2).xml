@@ -1,0 +1,390 @@
+<xml xmlns="http://www.w3.org/1999/xhtml" collection="true">
+  <block type="tick_analysis" id="%Tc-BTe;B2?Fr,ajxC9f">
+    <statement name="TICKANALYSIS_STACK">
+      <block type="controls_if" id="D?pEL1WlsZ-VjH^kQ__z">
+        <value name="IF0">
+          <block type="logic_compare" id="#Nqgo9Z1)slP5q%v!KFA">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="variables_get" id="daAOShXb5,7nou5_!P]w">
+                <field name="VAR" id="%YQj.I)J|QdS(]u+;1B8" variabletype="">UPTREND</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="logic_boolean" id="~Tsiw*;Ns=rQZl}s=3UA">
+                <field name="BOOL">TRUE</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="notify" id=")vw7OsoVZ0v]$wEI,:/D">
+            <field name="NOTIFICATION_TYPE">success</field>
+            <field name="NOTIFICATION_SOUND">silent</field>
+            <value name="MESSAGE">
+              <shadow type="text" id="ZDd$7Cpbg,-{@FMy|iu]">
+                <field name="TEXT">UPTREND</field>
+              </shadow>
+            </value>
+          </block>
+        </statement>
+        <next>
+          <block type="controls_if" id="2/PS7SAf=a*#LFY3O2R~">
+            <value name="IF0">
+              <block type="logic_compare" id="j=Q*`o#g`G{53:_99lzG">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="variables_get" id="u-V#JK2/ad}W?5jkCWDX">
+                    <field name="VAR" id=":fKr0g8T5q1Nw~0T@pd8" variabletype="">DOWNTREND</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="logic_boolean" id="gBuv9^gsatkv1^x(L4]=">
+                    <field name="BOOL">TRUE</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="notify" id="-xJ~Rj9?8z7iHu4QPlJU">
+                <field name="NOTIFICATION_TYPE">error</field>
+                <field name="NOTIFICATION_SOUND">silent</field>
+                <value name="MESSAGE">
+                  <shadow type="text" id="5,Qg)`+L:tKE+k}W!L-_">
+                    <field name="TEXT">DOWNTREND</field>
+                  </shadow>
+                </value>
+              </block>
+            </statement>
+            <next>
+              <block type="controls_if" id="B|V.F~JO*Dq)|^1_u3gk">
+                <value name="IF0">
+                  <block type="logic_operation" id="}NNCSm(CvSZaZ`tT|PIr" inline="false">
+                    <field name="OP">AND</field>
+                    <value name="A">
+                      <block type="logic_compare" id="C5W~Ls14%w:_ku6BP]4Q">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="variables_get" id="v}|K0@IjiO6OSPGNi@+y">
+                            <field name="VAR" id="%YQj.I)J|QdS(]u+;1B8" variabletype="">UPTREND</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="logic_boolean" id="fBRg{gG@E#l-iJOAt]kA">
+                            <field name="BOOL">FALSE</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="logic_compare" id="D`.FvoO#@9Azte8A%)ac">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="variables_get" id="~xDVBWvB]X+#@9{YN1`H">
+                            <field name="VAR" id=":fKr0g8T5q1Nw~0T@pd8" variabletype="">DOWNTREND</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="logic_boolean" id="67B+0Tm5#E{Y-im=*A[e">
+                            <field name="BOOL">FALSE</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="notify" id="M0yO%:z2.-!F]8URJYGJ">
+                    <field name="NOTIFICATION_TYPE">warn</field>
+                    <field name="NOTIFICATION_SOUND">silent</field>
+                    <value name="MESSAGE">
+                      <shadow type="text" id="?!ioz-AO5C~V6!pv~B?y">
+                        <field name="TEXT">SIDEWAY</field>
+                      </shadow>
+                    </value>
+                  </block>
+                </statement>
+                <next>
+                  <block type="variables_set" id="`--/oK%|-y:^;]ccrhvc">
+                    <field name="VAR" id="%YQj.I)J|QdS(]u+;1B8" variabletype="">UPTREND</field>
+                    <value name="VALUE">
+                      <block type="logic_operation" id="QfX}mF,$]5oFB}YQIu$7" inline="false">
+                        <field name="OP">AND</field>
+                        <value name="A">
+                          <block type="logic_operation" id="yE}D$h5ZyCv$ey8L~7||" inline="false">
+                            <field name="OP">AND</field>
+                            <value name="A">
+                              <block type="logic_compare" id="5P]Fj+2PWZ5987C7PS{{">
+                                <field name="OP">GT</field>
+                                <value name="A">
+                                  <block type="tick" id="*oO*Yfl2ST*@{(+jn7rM"></block>
+                                </value>
+                                <value name="B">
+                                  <block type="variables_get" id="DZxzLzqdfuNIulDp.Q5X">
+                                    <field name="VAR" id="68Ca!ADlAGGZFqKmigEv" variabletype="">SMA 25</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="logic_compare" id="Q:i,BlKjZPWsh:Q8hu7}">
+                                <field name="OP">GT</field>
+                                <value name="A">
+                                  <block type="variables_get" id="cNr(=-|nkvKj]8I6F_~g">
+                                    <field name="VAR" id="68Ca!ADlAGGZFqKmigEv" variabletype="">SMA 25</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="variables_get" id="#HUF`..0Uc2=e;M+A;En">
+                                    <field name="VAR" id="l,?7`7(hEu8C(f*6MrNA" variabletype="">SMA 30</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="logic_operation" id="(5en?zc;Z_fn,+ps;Ih2" inline="false">
+                            <field name="OP">AND</field>
+                            <value name="A">
+                              <block type="logic_operation" id="|goIa%H~mV1Lc71{{Xg4" inline="false">
+                                <field name="OP">AND</field>
+                                <value name="A">
+                                  <block type="logic_compare" id="Y7AZw%~c!/EnF.kN~ilL">
+                                    <field name="OP">GT</field>
+                                    <value name="A">
+                                      <block type="variables_get" id="gJAc+BYC}$=q-Oo#a,hv">
+                                        <field name="VAR" id="l,?7`7(hEu8C(f*6MrNA" variabletype="">SMA 30</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="variables_get" id="MoOUHCIUJ.si,}8e6=pn">
+                                        <field name="VAR" id="ilB~iTyNZj1xy/,;/)EE" variabletype="">SMA 35</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="logic_compare" id="VsFDlyZrcCv5[7utDSYG">
+                                    <field name="OP">GT</field>
+                                    <value name="A">
+                                      <block type="variables_get" id="m@5h$.WqX@D5,L=P:{;Q">
+                                        <field name="VAR" id="ilB~iTyNZj1xy/,;/)EE" variabletype="">SMA 35</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="variables_get" id="eKb%I?Jmrv9tSEM~W)jy">
+                                        <field name="VAR" id="!0H/xdi#tRS/Dn@.Y#}}" variabletype="">SMA 40</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="logic_operation" id="qT1$Hr6COjiWYyp`Y%~0" inline="false">
+                                <field name="OP">AND</field>
+                                <value name="A">
+                                  <block type="logic_compare" id="7Eb?i*bp1W5R{pV%t(DD">
+                                    <field name="OP">GT</field>
+                                    <value name="A">
+                                      <block type="variables_get" id="|QXx$2Y8{q})JY#Tc(LJ">
+                                        <field name="VAR" id="!0H/xdi#tRS/Dn@.Y#}}" variabletype="">SMA 40</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="variables_get" id="tcBulBn03FyyyZXHKV2c">
+                                        <field name="VAR" id="8XNXC7,G=3}N6Ng+|+[a" variabletype="">SMA 45</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="logic_compare" id="HH^-Ltfna9Zl$qTJc0yR">
+                                    <field name="OP">GT</field>
+                                    <value name="A">
+                                      <block type="variables_get" id="|W0_x.Tc*T/|7GUvn^lD">
+                                        <field name="VAR" id="8XNXC7,G=3}N6Ng+|+[a" variabletype="">SMA 45</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="variables_get" id="/}$~Iy*0{YL|IH(aBKS;">
+                                        <field name="VAR" id=")AMs%h46.9[iF=TFDTHk" variabletype="">SMA 50</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="variables_set" id="J4E;UY_bk;3c..7bta2A">
+                        <field name="VAR" id=":fKr0g8T5q1Nw~0T@pd8" variabletype="">DOWNTREND</field>
+                        <value name="VALUE">
+                          <block type="logic_operation" id="+O)0-UNkLB7bs{-RrzPt" inline="false">
+                            <field name="OP">AND</field>
+                            <value name="A">
+                              <block type="logic_operation" id="KR](4fw5/s7CaH)TP`}$" inline="false">
+                                <field name="OP">AND</field>
+                                <value name="A">
+                                  <block type="logic_compare" id="JrdONdwi5c9dET[D)B/f">
+                                    <field name="OP">LT</field>
+                                    <value name="A">
+                                      <block type="tick" id="cMYm25Omq-WSd,./Z72c"></block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="variables_get" id="P57BW+bapXpY}H3X/y!i">
+                                        <field name="VAR" id="68Ca!ADlAGGZFqKmigEv" variabletype="">SMA 25</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="logic_compare" id="^,UTC[`4qqYWVg`$1TPS">
+                                    <field name="OP">LT</field>
+                                    <value name="A">
+                                      <block type="variables_get" id="hR4PvvuBT#4AB*7v}s#M">
+                                        <field name="VAR" id="68Ca!ADlAGGZFqKmigEv" variabletype="">SMA 25</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="variables_get" id="d$.@!av_@gJ2@g}08J:#">
+                                        <field name="VAR" id="l,?7`7(hEu8C(f*6MrNA" variabletype="">SMA 30</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="logic_operation" id="xN6Svj9~fL2.%Q-|)gR." inline="false">
+                                <field name="OP">AND</field>
+                                <value name="A">
+                                  <block type="logic_operation" id="l8X(a.pz!Zu_ndQQNE1R" inline="false">
+                                    <field name="OP">AND</field>
+                                    <value name="A">
+                                      <block type="logic_compare" id="znZl)T!hr^$jMibC~+x-">
+                                        <field name="OP">LT</field>
+                                        <value name="A">
+                                          <block type="variables_get" id="K8;w*y5r/g#C;}zxQ[ri">
+                                            <field name="VAR" id="l,?7`7(hEu8C(f*6MrNA" variabletype="">SMA 30</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="variables_get" id="q{|/IDY5!hL029}d[`qN">
+                                            <field name="VAR" id="ilB~iTyNZj1xy/,;/)EE" variabletype="">SMA 35</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="logic_compare" id="]k=9KQ*gI8mPxfx[1NqS">
+                                        <field name="OP">LT</field>
+                                        <value name="A">
+                                          <block type="variables_get" id="`,QdH.IZ@iymC0mH$]))">
+                                            <field name="VAR" id="ilB~iTyNZj1xy/,;/)EE" variabletype="">SMA 35</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="variables_get" id="iGb3v_3x6q|m9%3yqQE1">
+                                            <field name="VAR" id="!0H/xdi#tRS/Dn@.Y#}}" variabletype="">SMA 40</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="logic_operation" id="-`L]9Z0]EY/zJbW2T$Ze" inline="false">
+                                    <field name="OP">AND</field>
+                                    <value name="A">
+                                      <block type="logic_compare" id="H+9F9o=a9_f?EfeS[kP|">
+                                        <field name="OP">LT</field>
+                                        <value name="A">
+                                          <block type="variables_get" id="h3sC:Z{PEJP31T+1^5Oc">
+                                            <field name="VAR" id="!0H/xdi#tRS/Dn@.Y#}}" variabletype="">SMA 40</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="variables_get" id="%)=w[zd]-.w9Pm:^zzUQ">
+                                            <field name="VAR" id="8XNXC7,G=3}N6Ng+|+[a" variabletype="">SMA 45</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="logic_compare" id="Mp!,.9t(VDx*.~2=VLv]">
+                                        <field name="OP">LT</field>
+                                        <value name="A">
+                                          <block type="variables_get" id="Rshe~@?_eoC4}RWVi^A6">
+                                            <field name="VAR" id="8XNXC7,G=3}N6Ng+|+[a" variabletype="">SMA 45</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="variables_get" id="fQPcFR{WgOY`1IHZ-{xt">
+                                            <field name="VAR" id=")AMs%h46.9[iF=TFDTHk" variabletype="">SMA 50</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="variables_set" id="nj~Ot?b/Pl^LrUUu5a@1">
+                            <field name="VAR" id="~eX~gKCaOz[.zr=.Lw^:" variabletype="">SIDEWAY</field>
+                            <value name="VALUE">
+                              <block type="logic_operation" id="PLSHW[neYL({Tcv_Qs2X" inline="false">
+                                <field name="OP">AND</field>
+                                <value name="A">
+                                  <block type="logic_compare" id=",D|E?@@wUXU*^!7./k68">
+                                    <field name="OP">EQ</field>
+                                    <value name="A">
+                                      <block type="variables_get" id="PRXF8bT#{w:ot89?=%8r">
+                                        <field name="VAR" id="%YQj.I)J|QdS(]u+;1B8" variabletype="">UPTREND</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="logic_boolean" id="u=LTP.LMT~d+5?G*25JH">
+                                        <field name="BOOL">FALSE</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="logic_compare" id="xG#B=gUMi+T0](@r0rpk">
+                                    <field name="OP">EQ</field>
+                                    <value name="A">
+                                      <block type="variables_get" id="`x?{no9?[w}gInl?V!_3">
+                                        <field name="VAR" id=":fKr0g8T5q1Nw~0T@pd8" variabletype="">DOWNTREND</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="logic_boolean" id="Hm0-a2CJLFH30{Y?gD1;">
+                                        <field name="BOOL">FALSE</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>
